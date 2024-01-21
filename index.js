@@ -1,17 +1,17 @@
 class ProductManager {
     constructor() {
-        this.productos = [];
+        this.productos = []
     }
 
     addProducto(nombre, descripcion, precio, rutaImagen, stock) {
         // Validar que todos los campos sean obligatorios
         if (!nombre || !descripcion || !precio || !rutaImagen || !stock) {
-            console.error("Todos los campos son obligatorios.");
-            return;
+            console.error("Todos los campos son obligatorios.")
+            return
         }
 
         // Generar un id autoincrementable
-        const productoId = this.productos.length + 1;
+        const productoId = this.productos.length + 1
 
         // Verificar duplicados por ID
         const idExiste = this.productos.some(producto => producto.id === productoId)
@@ -28,25 +28,25 @@ class ProductManager {
             precio: precio,
             rutaImagen: rutaImagen,
             stock: stock,
-        };
+        }
 
         // Agregar el producto al array de productos
-        this.productos.push(nuevoProducto);
+        this.productos.push(nuevoProducto)
 
-        console.log(`Producto agregado con éxito. ID: ${productoId}`);
+        console.log(`Producto agregado con éxito. ID: ${productoId}`)
     }
 
     getProducts() {
-        return this.productos;
+        return this.productos
     }
 
     getProductById(productoId) {
         // Buscar el producto por ID
-        const foundProducto = this.productos.find((producto) => producto.id === productoId);
+        const foundProducto = this.productos.find((producto) => producto.id === productoId)
 
         // Mostrar error si no se encuentra el ID
         if (!foundProducto) {
-            console.error("Producto no encontrado.");
+            console.error("Producto no encontrado.")
         }
 
         return foundProducto;
