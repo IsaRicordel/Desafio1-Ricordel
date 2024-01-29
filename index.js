@@ -1,73 +1,42 @@
-class ProductManager {
-    constructor() {
-        this.productos = []
+const ProductManager = require("./ProductManager.js")
+let productManager = new ProductManager() // se crea la instancia de la clase
+console.log(productManager)
+
+let persistirProducto = async () => {
+    await productManager.agregarProducto("Arnés", "Edelweiss", 60000, "/path1", 125)
+    await productManager.agregarProducto("Arnés", "Petzl", 125000, "/path2", 200)
+    await productManager.agregarProducto("Pédulas", "La Sportiva", 45000, "/path3", 82)
+    await productManager.agregarProducto("Mosquetón", "Edelweiss", 25000, "/path4", 85)
+    await productManager.agregarProducto("Mosquetón", "Blackdiamond", 7500, "/path5", 132)
+
+    let productos = await productManager.consultarProductos()
+    console.log(`Productos encontrados en Product Manager: ${productos.length}`)
+    console.log(productos)
+
+    // IDs de los productos que deseas modificar y eliminar
+    const productIdModificar = 4
+    const productIdEliminar = 5
+
+    // Obtener producto por ID y mostrar información antes de modificar
+    const productoAntesModificar = await productManager.consultarProductosPorId(productIdModificar)
+    console.log(`Producto antes de modificar por ID ${productIdModificar}:`, productoAntesModificar)
+
+    // Actualizar producto por ID
+    const actualizarProducto = {
+        descripcion: "Petzl",
+        precio: 48000,
+        stock: 154
     }
+    const productoActualizado = await productManager.actualizarProducto(productIdModificar, actualizarProducto)
+    console.log(`Producto actualizado por ID ${productIdModificar}:`, productoActualizado)
 
-    addProducto(nombre, descripcion, precio, rutaImagen, stock) {
-        // Validar que todos los campos sean obligatorios
-        if (!nombre || !descripcion || !precio || !rutaImagen || !stock) {
-            console.error("Todos los campos son obligatorios.")
-            return
-        }
+    // Obtener producto por ID y mostrar información antes de eliminar
+    const productoAntesEliminar = await productManager.consultarProductosPorId(productIdEliminar)
+    console.log(`Producto antes de eliminar por ID ${productIdEliminar}:`, productoAntesEliminar)
 
-        // Generar un id autoincrementable
-        const productoId = this.productos.length + 1
-
-        // Verificar duplicados por ID
-        const idExiste = this.productos.some(producto => producto.id === productoId)
-        if (idExiste) {
-            console.error("El código ya existe. Intente con otro código.")
-            return
-        }
-               
-        // Crear el nuevo producto
-        const nuevoProducto = {
-            id: productoId,
-            nombre: nombre,
-            descripcion: descripcion,
-            precio: precio,
-            rutaImagen: rutaImagen,
-            stock: stock,
-        }
-
-        // Agregar el producto al array de productos
-        this.productos.push(nuevoProducto)
-
-        console.log(`Producto agregado con éxito. ID: ${productoId}`)
-    }
-
-    getProducts() {
-        return this.productos
-    }
-
-    getProductById(productoId) {
-        // Buscar el producto por ID
-        const foundProducto = this.productos.find((producto) => producto.id === productoId)
-
-        // Mostrar error si no se encuentra el ID
-        if (!foundProducto) {
-            console.error("Producto no encontrado.")
-        }
-
-        return foundProducto;
-    }
+    // Eliminar producto por ID
+    const productoEliminado = await productManager.eliminarProducto(productIdEliminar)
+    console.log(`Producto eliminado por ID ${productIdEliminar}:`, productoEliminado)
 }
 
-// Ejemplo de uso
-const productManager = new ProductManager()
-
-// Agregar productos
-productManager.addProducto("Pédulas", "La Sportiva", 257000, "/path1", 130)
-productManager.addProducto("Arnés", "Edelweiss", 267000, "/path2", 78)
-
-
-// Obtener todos los productos
-console.log("Todos los productos:", productManager.getProducts())
-
-// Buscar producto por ID
-const productIdToSearch = 3
-const foundProducto = productManager.getProductById(productIdToSearch)
-
-if (foundProducto) {
-    console.log(`Producto encontrado por ID ${productIdToSearch}:`, foundProducto)
-}
+persistirProducto()
