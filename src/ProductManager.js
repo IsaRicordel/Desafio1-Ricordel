@@ -29,7 +29,7 @@ class ProductManager {
     constructor() {
         this.#products = new Array()
         this.#productDirPath = "./files"
-        this.#productsFilePath = this.#productDirPath + "/Productos.json"
+        this.#productsFilePath = __dirname + "/files/Productos.json"
         this.#fileSystem = require("fs")
     }
 

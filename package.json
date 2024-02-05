@@ -1,0 +1,11 @@
+{
+  "name": "tercer-desafio-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

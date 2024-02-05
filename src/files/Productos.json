@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "'Miura'",
+    "descripcion": "La Sportiva",
+    "precio": 80000,
+    "rutaImagen": "/path1",
+    "stock": 125
+  },
+  {
+    "id": 2,
+    "nombre": "'Katana'",
+    "descripcion": "La Sportiva",
+    "precio": 125000,
+    "rutaImagen": "/path2",
+    "stock": 200
+  },
+  {
+    "id": 3,
+    "nombre": "Otaki",
+    "descripcion": "La Sportiva",
+    "precio": 101000,
+    "rutaImagen": "/path3",
+    "stock": 82
+  },
+  {
+    "id": 4,
+    "nombre": "Selena",
+    "descripcion": "Petzl",
+    "precio": 124350,
+    "rutaImagen": "/path4",
+    "stock": 93
+  },
+  {
+    "id": 5,
+    "nombre": "Ray",
+    "descripcion": "Singing Rock",
+    "precio": 40000,
+    "rutaImagen": "/path5",
+    "stock": 85
+  },
+  {
+    "id": 6,
+    "nombre": "Jayne 3",
+    "descripcion": "Edelrid",
+    "precio": 7500,
+    "rutaImagen": "/path6",
+    "stock": 132
+  },
+  {
+    "id": 7,
+    "nombre": "Colt Negro",
+    "descripcion": "Singing Rock",
+    "precio": 7500,
+    "rutaImagen": "/path7",
+    "stock": 163
+  },
+  {
+    "id": 8,
+    "nombre": "Link",
+    "descripcion": "Edelweiss",
+    "precio": 10000,
+    "rutaImagen": "/path8",
+    "stock": 320
+  },
+  {
+    "id": 9,
+    "nombre": "Argon S Black",
+    "descripcion": "Kong",
+    "precio": 13000,
+    "rutaImagen": "/path9",
+    "stock": 267
+  },
+  {
+    "id": 10,
+    "nombre": "Rocklock Screwgate",
+    "descripcion": "Black Diamond",
+    "precio": 21265,
+    "rutaImagen": "/path10",
+    "stock": 165
+  }
+]
